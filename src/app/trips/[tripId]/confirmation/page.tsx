@@ -9,12 +9,13 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
+import { toast } from "react-toastify";
 
 function TripConfirmation({ params }: { params: { tripId: string } }) {
   const [trip, setTrip] = useState<Trip | null>();
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
-  const { status } = useSession();
+  const { status, data } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -47,6 +48,34 @@ function TripConfirmation({ params }: { params: { tripId: string } }) {
   }, [status, searchParams, params, router]);
 
   if (!trip) return null;
+
+  const handleBuyClick = async () => {
+    const res = await fetch(`http://localhost:3000/api/trips/reservation`, {
+      method: "POST",
+      body: Buffer.from(
+        JSON.stringify({
+          tripId: params.tripId,
+          startDate: searchParams.get("startDate"),
+          endDate: searchParams.get("endDate"),
+          guests: Number(searchParams.get("guests")),
+          userId: (data?.user as any)?.id!,
+          totalPaid: totalPrice,
+        })
+      ),
+    });
+
+    if (!res.ok) {
+      return toast.error("Ocorreu um erro ao realizar a sua reserva!", {
+        position: "bottom-center",
+      });
+    }
+
+    router.push("/");
+
+    toast.success("Reserva realizada com sucesso!", {
+      position: "bottom-center",
+    });
+  };
 
   const startDate = new Date(searchParams.get("startDate") as string);
   const endDate = new Date(searchParams.get("endDate") as string);
@@ -101,7 +130,7 @@ function TripConfirmation({ params }: { params: { tripId: string } }) {
         <h3 className="font-semibold mt-5">Hóspedes</h3>
         <p>{guests} hóspedes</p>
 
-        <Button className="mt-5" variant={"primary"} onClick={() => {}}>
+        <Button className="mt-5" variant={"primary"} onClick={handleBuyClick}>
           Finalizar Compra
         </Button>
       </div>
