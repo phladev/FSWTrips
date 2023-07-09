@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import ReactCountryFlag from "react-country-flag";
@@ -5,6 +7,8 @@ import { Prisma } from "@prisma/client";
 import { format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import Button from "@/components/Button";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface UserReservationItemProps {
   reservation: Prisma.TripReservationGetPayload<{
@@ -13,7 +17,29 @@ interface UserReservationItemProps {
 }
 
 function UserReservationItem({ reservation }: UserReservationItemProps) {
+  const router = useRouter();
   const { trip } = reservation;
+
+  const handleDeleteClick = async () => {
+    const res = await fetch(
+      `http://localhost:3000/api/trips/reservation/${reservation.id}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (!res.ok) {
+      return toast.error("Ocorreu um erro ao cancelar sua reserva!", {
+        position: "bottom-center",
+      });
+    }
+
+    toast.success("Reserva cancelada com sucesso!", {
+      position: "bottom-center",
+    });
+
+    router.replace("/");
+  };
 
   return (
     <div>
@@ -75,7 +101,7 @@ function UserReservationItem({ reservation }: UserReservationItemProps) {
           </p>
         </div>
 
-        <Button className="mt-5" variant={"danger"}>
+        <Button className="mt-5" variant={"danger"} onClick={handleDeleteClick}>
           Cancelar
         </Button>
       </div>
