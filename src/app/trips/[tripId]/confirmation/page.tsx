@@ -16,7 +16,7 @@ function TripConfirmation({ params }: { params: { tripId: string } }) {
   const [trip, setTrip] = useState<Trip | null>();
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
-  const { status, data } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
 
