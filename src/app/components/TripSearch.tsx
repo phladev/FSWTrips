@@ -33,12 +33,12 @@ const TripSearch = () => {
   };
 
   return (
-    <div className="container mx-auto p-5 bg-search-background bg-cover bg-center bg-no-repeat">
-      <h1 className="font-semibold text-xl text-primaryDarker text-center">
+    <div className="mx-auto p-5 bg-search-background bg-cover bg-center bg-no-repeat lg:bg-contain lg:bg-gray-100 lg:h-[450px] lg:py-32">
+      <h1 className="font-semibold text-xl text-primaryDarker text-center lg:text-[2.5rem]">
         Encontre sua próxima <span className="text-primary">viagem!</span>
       </h1>
 
-      <div className="flex flex-col gap-4 mt-5">
+      <div className="flex flex-col gap-4 mt-5 lg:flex-row lg:max-w-[948px] lg:mx-auto lg:min-w-[144px] lg:bg-primary lg:bg-opacity-20 lg:p-5 lg:rounded-lg lg:mt-8">
         <Input
           error={!!errors.text}
           errorMessage={errors.text?.message}
@@ -48,7 +48,7 @@ const TripSearch = () => {
           })}
         />
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-none">
           <Controller
             name="startDate"
             control={control}
@@ -77,7 +77,11 @@ const TripSearch = () => {
           />
         </div>
 
-        <Button variant={"primary"} onClick={() => handleSubmit(onSubmit)()}>
+        <Button
+          variant={"primary"}
+          onClick={() => handleSubmit(onSubmit)()}
+          className="lg:w-[450px]"
+        >
           Buscar
         </Button>
       </div>

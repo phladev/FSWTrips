@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "search-background": "url(/world-map.png)",
+        "search-background": "url(/world-map.svg)",
       },
       colors: {
         primary: "#590BD8",
