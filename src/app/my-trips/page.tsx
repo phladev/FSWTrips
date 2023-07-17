@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import UserReservationItem from "./components/UserReservationItem";
 import Button from "@/components/Button";
 import Link from "next/link";
+import GoBack from "@/components/GoBack";
 
 function MyTrips() {
   const [reservations, setReservations] = useState<
@@ -38,6 +39,9 @@ function MyTrips() {
 
   return (
     <div className="container mx-auto p-5 ">
+      <div className="mb-2">
+        <GoBack />
+      </div>
       <h1 className="font-semibold text-primaryDarker text-xl lg:mb-5">
         Minhas Viagens
       </h1>
