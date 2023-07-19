@@ -5,7 +5,7 @@ import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
 import { differenceInDays } from "date-fns";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
 interface TripReservationProps {
@@ -37,10 +37,12 @@ const TripReservation = ({
     watch,
     setError,
   } = useForm<TripReservationForm>();
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
   const onSubmit = async (data: TripReservationForm) => {
+    setLoading(true);
     const response = await fetch("/api/trips/check", {
       method: "POST",
       body: Buffer.from(
@@ -85,6 +87,7 @@ const TripReservation = ({
         data.guests
       }`
     );
+    setLoading(false);
   };
 
   const startDate = watch("startDate");
@@ -174,6 +177,7 @@ const TripReservation = ({
           className="mt-3 w-full"
           variant={"primary"}
           onClick={() => handleSubmit(onSubmit)()}
+          disabled={loading}
         >
           Reservar agora
         </Button>

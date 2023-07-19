@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 function TripConfirmation({ params }: { params: { tripId: string } }) {
   const [trip, setTrip] = useState<Trip | null>();
   const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [loading, setLoading] = useState(false);
 
   const { status } = useSession();
   const router = useRouter();
@@ -44,13 +45,13 @@ function TripConfirmation({ params }: { params: { tripId: string } }) {
     if (status === "unauthenticated") {
       router.push("/");
     }
-
     fetchTrip();
   }, [status, searchParams, params, router]);
 
   if (!trip) return null;
 
   const handleBuyClick = async () => {
+    setLoading(true);
     const res = await fetch(`/api/payment`, {
       method: "POST",
       body: Buffer.from(
@@ -81,6 +82,7 @@ function TripConfirmation({ params }: { params: { tripId: string } }) {
 
     await stripe?.redirectToCheckout({ sessionId });
 
+    setLoading(false);
     toast.success("Reserva realizada com sucesso!", {
       position: "bottom-center",
     });
@@ -139,7 +141,12 @@ function TripConfirmation({ params }: { params: { tripId: string } }) {
         <h3 className="font-semibold mt-5">Hóspedes</h3>
         <p>{guests} hóspedes</p>
 
-        <Button className="mt-5" variant={"primary"} onClick={handleBuyClick}>
+        <Button
+          className="mt-5"
+          variant={"primary"}
+          onClick={handleBuyClick}
+          disabled={loading}
+        >
           Finalizar Compra
         </Button>
       </div>
