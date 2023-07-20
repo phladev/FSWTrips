@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 import DatePicker from "@/components/DatePicker";
 import Input from "@/components/Input";
 import { differenceInDays } from "date-fns";
+import { getURL } from "next/dist/shared/lib/utils";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -115,7 +116,7 @@ const TripReservation = ({
               placeholderText="Data de Início"
               onChange={field.onChange}
               selected={field.value}
-              minDate={tripStartDate}
+              minDate={tripStartDate < new Date() ? new Date() : tripStartDate}
               className="w-full"
             />
           )}
@@ -137,7 +138,7 @@ const TripReservation = ({
               onChange={field.onChange}
               selected={field.value}
               maxDate={tripEndDate}
-              minDate={startDate ?? tripStartDate}
+              minDate={startDate ?? new Date()}
               className="w-full"
             />
           )}
@@ -161,6 +162,7 @@ const TripReservation = ({
         errorMessage={errors.guests?.message}
         type="number"
         min={1}
+        max={maxGuests}
       />
 
       <div className="flex justify-between mt-3">
