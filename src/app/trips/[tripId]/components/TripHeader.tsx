@@ -11,7 +11,7 @@ interface TripHeaderProps {
 const TripHeader = ({ trip }: TripHeaderProps) => {
   return (
     <div className="flex flex-col">
-      <div>
+      <div className="lg:hidden">
         <Slider imageCover={trip.coverImage} images={trip.imagesUrl} />
       </div>
 
