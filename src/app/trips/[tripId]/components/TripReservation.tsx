@@ -117,6 +117,7 @@ const TripReservation = ({
               onChange={field.onChange}
               selected={field.value}
               minDate={tripStartDate < new Date() ? new Date() : tripStartDate}
+              maxDate={tripEndDate}
               className="w-full"
             />
           )}
