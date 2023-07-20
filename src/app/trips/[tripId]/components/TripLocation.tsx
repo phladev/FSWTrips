@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 interface TripLocationProps {
@@ -10,7 +11,9 @@ interface TripLocationProps {
 const TripLocation = ({ location, locationDescription }: TripLocationProps) => {
   return (
     <div className="p-5 lg:p-0 lg:mt-12 lg:pb-20">
-      <h2 className="font-semibold text-primaryDarker mb-5 lg:text-xl">Localização</h2>
+      <h2 className="font-semibold text-primaryDarker mb-5 lg:text-xl">
+        Localização
+      </h2>
       <div className="relative h-[280px] w-full lg:hidden">
         <Image
           src="/map-mobile.png"
@@ -35,11 +38,20 @@ const TripLocation = ({ location, locationDescription }: TripLocationProps) => {
         />
       </div>
 
-      <h3 className="text-primaryDarker text-sm font-semibold mt-3 lg:text-base lg:mt-5">{location}</h3>
-      <p className="text-xs text-primaryDarker mt-2 leading-5 lg:text-sm lg:mt-4">{locationDescription}</p>
-      <Button variant="outlined" className="w-full mt-5">
-        Ver no Google Maps
-      </Button>
+      <h3 className="text-primaryDarker text-sm font-semibold mt-3 lg:text-base lg:mt-5">
+        {location}
+      </h3>
+      <p className="text-xs text-primaryDarker mt-2 leading-5 lg:text-sm lg:mt-4">
+        {locationDescription}
+      </p>
+      <Link
+        target="blank"
+        href="https://www.google.com/maps/place/Brazil/@-14.4095261,-51.31668,4z/data=!3m1!4b1!4m6!3m5!1s0x9c59c7ebcc28cf:0x295a1506f2293e63!8m2!3d-14.235004!4d-51.92528!16zL20vMDE1ZnI?entry=ttu"
+      >
+        <Button variant="outlined" className="w-full mt-5">
+          Ver no Google Maps
+        </Button>
+      </Link>
     </div>
   );
 };
