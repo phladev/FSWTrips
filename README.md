@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+![Project Logo]([https://i.imgur.com/kniMQHu.png](https://imgur.com/gESH8qc))
 
-First, run the development server:
+# FSW Trips
+
+FSW Trips is a project that simulates a hotel and travel booking website, where users can log in with their Google account, search for trips of their interest, either by looking for a specific type of hotel or location.
+
+## 🔥 Introduction
+
+This project was created alongside the programmer @felipemotarocha, who developed it with his community on YouTube. The goal of the project was to enhance my skills in both front-end and back-end, so I made my own modifications to the project.
+
+### ⚙️ Prerequisites
+
+First of all, you need to have Node.js installed on your computer. This will allow you to proceed with the installation steps.
+
+### 🔨 Installation Guide
+
+Steps to Install:
 
 ```bash
+npm install
+# or
+npm i
+```
+Step 2:
+```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📦 Technologies Used:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+* ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+* ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+* ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+* ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+## 👷 Authors
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+* **Pedro Henrique** - *Programmer* - [@phladev](https://github.com/phladev)
+* * **Felipe Rocha** - *Creator of FSW* - [@felipemotarocha](https://github.com/felipemotarocha)
 
-## Learn More
+## 💡 Expressions of gratitude
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Thank @felipemotarocha
+* My LinkedIN -> [Pedro Henrique Lima de Assis](https://www.linkedin.com/in/pedrohldev/)
