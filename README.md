@@ -43,4 +43,4 @@ npm run dev
 ## 💡 Expressions of gratitude
 
 * Thank @felipemotarocha
-* My LinkedIN -> [Pedro Henrique Lima de Assis](https://www.linkedin.com/in/pedrohldev/)
+* My LinkedIn -> [Pedro Henrique Lima de Assis](https://www.linkedin.com/in/pedrohldev/)
