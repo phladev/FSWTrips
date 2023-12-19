@@ -38,7 +38,7 @@ npm run dev
 ## 👷 Authors
 
 * **Pedro Henrique** - *Programmer* - [@phladev](https://github.com/phladev)
-* * **Felipe Rocha** - *Creator of FSW* - [@felipemotarocha](https://github.com/felipemotarocha)
+* **Felipe Rocha** - *Creator of FSW* - [@felipemotarocha](https://github.com/felipemotarocha)
 
 ## 💡 Expressions of gratitude
 
