@@ -4,6 +4,7 @@
 # FSW Trips
 
 FSW Trips is a project that simulates a hotel and travel booking website, where users can log in with their Google account, search for trips of their interest, either by looking for a specific type of hotel or location.
+Deploy link: https://fsw-trips-pxdrobdf.vercel.app
 
 ## 🔥 Introduction
 
