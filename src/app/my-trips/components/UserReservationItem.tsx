@@ -76,13 +76,13 @@ function UserReservationItem({
           <h3 className="text-sm mt-2">Data</h3>
           <div className="flex items-center gap-1">
             <p className="text-sm">
-              {format(new Date(reservation.startDate), "dd 'de' MMMM", {
+              {format(new Date(reservation.startDate), "dd 'de' MMMM',' yyyy", {
                 locale: ptBR,
               })}
             </p>
             {" - "}
             <p className="text-sm">
-              {format(new Date(reservation.endDate), "dd 'de' MMMM", {
+              {format(new Date(reservation.endDate), "dd 'de' MMMM',' yyyy", {
                 locale: ptBR,
               })}
             </p>

@@ -133,9 +133,9 @@ function TripConfirmation({ params }: { params: { tripId: string } }) {
       <div className="flex flex-col mt-5 text-primaryDarker">
         <h3 className="font-semibold">Data</h3>
         <div className="flex items-center gap-1 mt-1">
-          <p>{format(startDate, "dd 'de' MMMM", { locale: ptBR })}</p>
+          <p>{format(startDate, "dd 'de' MMMM',' yyyy", { locale: ptBR })}</p>
           {" - "}
-          <p>{format(endDate, "dd 'de' MMMM", { locale: ptBR })}</p>
+          <p>{format(endDate, "dd 'de' MMMM',' yyyy", { locale: ptBR })}</p>
         </div>
 
         <h3 className="font-semibold mt-5">Hóspedes</h3>
