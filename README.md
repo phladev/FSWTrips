@@ -15,7 +15,7 @@ This project was created alongside the programmer @felipemotarocha, who develope
 First of all, you need to have Node.js installed on your computer. This will allow you to proceed with the installation steps.
 
 ### 🔨 Installation Guide
-**Important! Card number to use in the payment: 42424 4242 4242 4242
+*Important! Card number to use in the payment: 42424 4242 4242 4242*
 
 Steps to Install:
 
